@@ -1,0 +1,10 @@
+{
+	"extends": "../../tsconfig",
+	"compilerOptions": {
+		"noEmit": true,
+		"target": "ESNext",
+		"module": "CommonJS",
+		"lib": ["ESNext"]
+	},
+	"include": ["**/*.ts", "../nodecg/**/*.ts", "../@types/*"]
+}
