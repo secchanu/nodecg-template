@@ -4,6 +4,8 @@ generated/
 /graphics
 /extension
 /bundle-analyzer
+/cfg
+/shared
 
 # Logs
 logs
@@ -135,3 +137,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# pnpm
+package-lock.json

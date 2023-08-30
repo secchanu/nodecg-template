@@ -1,6 +1,6 @@
 # nodecg-template
 
-[NodeCG](https://www.nodecg.dev/) bundle 用のテンプレート
+[NodeCG](https://www.nodecg.dev/) bundle用のテンプレート
 
 ## 環境
 
@@ -8,7 +8,7 @@
 
 ライブラリ: React
 
-ビルド: Webpack + Babel
+ビルド: Vite
 
 フォーマッタ: ESLint + Prettier
 

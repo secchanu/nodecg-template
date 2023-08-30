@@ -1,8 +1,5 @@
-import { createRoot } from "react-dom/client";
+import { render } from "../render";
 
-import App from "./sample/";
+import App from "./sample/index";
 
-import "modern-normalize";
-
-const root = createRoot(document.getElementById("root")!);
-root.render(<App />);
+render(<App />);

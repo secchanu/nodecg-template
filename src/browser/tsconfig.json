@@ -6,7 +6,7 @@
 		"module": "ESNext",
 		"lib": ["ESNext", "DOM"],
 		"jsx": "react-jsx",
-		"types": ["webpack-env"]
+		"types": ["vite/client"]
 	},
-	"include": ["**/*.ts", "**/*.tsx", "../nodecg/**/*.ts", "../@types/*"]
+	"include": ["**/*.ts", "**/*.tsx", "../nodecg/**/*.ts"]
 }
