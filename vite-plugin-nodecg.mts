@@ -92,8 +92,8 @@ export default async ({
 		typeof extension === "string"
 			? await setupExtensionBuild({ input: extension })
 			: typeof extension === "object"
-			? await setupExtensionBuild(extension)
-			: extension;
+			  ? await setupExtensionBuild(extension)
+			  : extension;
 
 	const graphicsInputs = globSync(graphics);
 	const dashboardInputs = globSync(dashboard);
@@ -132,7 +132,7 @@ export default async ({
 			config.command === "build"
 				? (JSON.parse(
 						await fs.readFile(
-							path.join(config.build.outDir, "manifest.json"),
+							path.join(config.build.outDir, ".vite", "manifest.json"),
 							"utf-8",
 						),
 				  ) as Manifest)
