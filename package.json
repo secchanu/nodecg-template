@@ -1,82 +1,95 @@
 {
-	"name": "nodecg-template",
-	"version": "0.0.0",
-	"description": "",
-	"license": "MIT",
-	"scripts": {
-		"build": "vite build",
-		"dev": "run-p dev:*",
-		"dev:nodecg": "onchange extension schema configschema.json -ik -- node --enable-source-maps ../..",
-		"dev:schema-types": "onchange schemas configschema.json -i -- npm run schema-types",
-		"dev:tsc": "tsc -b src/browser src/extension -w --preserveWatchOutput",
-		"dev:vite": "vite",
-		"format": "run-s format:*",
-		"format:prettier": "npm run test:prettier -- --write",
-		"format:sort-package-json": "sort-package-json",
-		"prepare": "husky install",
-		"schema-types": "del-cli src/nodecg/generated && nodecg schema-types -o src/nodecg/generated",
-		"start": "(cd ../.. && node index.js)",
-		"test": "run-s schema-types test:*",
-		"test:lint": "eslint --ext .ts,.tsx .",
-		"test:prettier": "prettier \"**/*.{ts,tsx,json,html,yml,css,scss,md}\" --check",
-		"test:types": "tsc -b src/browser src/extension"
-	},
-	"lint-staged": {
-		"*.{ts,tsx,json,html,yml,css,scss,md}": [
-			"prettier --write"
-		],
-		"package.json": [
-			"sort-package-json"
-		]
-	},
-	"devDependencies": {
-		"@types/react": "^18.2.67",
-		"@types/react-dom": "^18.2.22",
-		"@typescript-eslint/parser": "^6.13.2",
-		"@vitejs/plugin-react": "^4.2.1",
-		"del-cli": "^5.1.0",
-		"eslint": "^8.55.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"glob": "^10.3.10",
-		"husky": "^8.0.3",
-		"klona": "^2.0.6",
-		"lint-staged": "^15.2.0",
-		"modern-normalize": "^2.0.0",
-		"nodecg-cli": "^8.6.8",
-		"npm-run-all2": "^6.1.1",
-		"onchange": "^7.1.0",
-		"prettier": "3.1.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"rollup": "^4.13.0",
-		"rollup-plugin-esbuild": "^6.1.1",
-		"rollup-plugin-node-externals": "^7.0.1",
-		"sort-package-json": "^2.6.0",
-		"ts-nodecg": "^0.3.1",
-		"tsx": "^4.6.2",
-		"typescript": "^5.3.3",
-		"vite": "^5.1.6"
-	},
-	"nodecg": {
-		"compatibleRange": "^2.0.0",
-		"dashboardPanels": [
-			{
-				"name": "sample",
-				"title": "サンプル",
-				"width": 2,
-				"headerColor": "#407dbf",
-				"file": "sample.html",
-				"fullbleed": false
-			}
-		],
-		"graphics": [
-			{
-				"file": "sample.html",
-				"width": 1920,
-				"height": 1080,
-				"singleInstance": false
-			}
-		]
-	}
+  "name": "nodecg-template",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build",
+    "dev": "run-p dev:*",
+    "dev:schema-types": "onchange schemas configschema.json -i -- pnpm schema-types",
+    "dev:tsc": "tsc -b src/browser src/extension -w --preserveWatchOutput",
+    "dev:vite": "vite",
+    "dev:nodecg": "onchange extension schema configschema.json -ik -- node --enable-source-maps ../..",
+    "format": "run-s format:*",
+    "format:lint": "pnpm test:lint --fix",
+    "format:prettier": "pnpm test:prettier --write",
+    "format:sort-package-json": "sort-package-json",
+    "prepare": "husky",
+    "schema-types": "del-cli src/nodecg/generated && nodecg schema-types -o src/nodecg/generated",
+    "start": "(cd ../.. && node index.js)",
+    "test": "run-s schema-types test:*",
+    "test:lint": "eslint --ext .ts,.tsx .",
+    "test:prettier": "prettier \"**/*.{ts,tsx,json,html,yml,css,scss,md}\" --check",
+    "test:types": "tsc -b src/browser src/extension"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx,json,html,yml,css,scss,md}": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "devDependencies": {
+    "@nodecg/react-hooks": "^1.0.3",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.16.0",
+    "@typescript-eslint/parser": "^7.16.0",
+    "del-cli": "^5.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "glob": "^11.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "modern-normalize": "^2.0.0",
+    "nodecg-cli": "^8.6.8",
+    "npm-run-all2": "^6.2.2",
+    "onchange": "^7.1.0",
+    "prettier": "3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sort-package-json": "^2.10.0",
+    "ts-nodecg": "^0.3.1",
+    "type-fest": "^4.21.0",
+    "typescript": "^5.5.3",
+    "vite": "^4.5.3",
+    "vite-plugin-nodecg": "^2.0.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "semver@<5.7.2": ">=5.7.2",
+      "xml2js@<0.5.0": ">=0.5.0"
+    }
+  },
+  "nodecg": {
+    "compatibleRange": "^2.0.0",
+    "dashboardPanels": [
+      {
+        "name": "sample",
+        "title": "サンプル",
+        "width": 2,
+        "headerColor": "#407dbf",
+        "file": "sample.html",
+        "fullbleed": false
+      }
+    ],
+    "graphics": [
+      {
+        "file": "sample.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ]
+  }
 }

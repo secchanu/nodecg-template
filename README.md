@@ -4,13 +4,7 @@
 
 ## 環境
 
-言語: TypeScript
-
-ライブラリ: React
-
-ビルド: Vite
-
-フォーマッタ: ESLint + Prettier
+TypeScript + React
 
 ## 参考
 

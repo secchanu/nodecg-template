@@ -1,9 +1,7 @@
 {
-	"cSpell.words": [
-		"configschema",
-		"fullbleed",
-		"nodecg",
-		"replicant",
-		"replicants"
-	]
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
 }

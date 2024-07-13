@@ -1,5 +1,5 @@
-import type * as replicant from "./generated/index";
-
-type ReplicantMap = {};
+type ReplicantMap = {
+  test: { id: string };
+};
 
 export { ReplicantMap };
