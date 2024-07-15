@@ -58,12 +58,14 @@
     "prettier": "3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "rollup": "^4.18.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-node-externals": "^7.1.2",
     "sort-package-json": "^2.10.0",
     "ts-nodecg": "^0.3.1",
     "type-fest": "^4.21.0",
     "typescript": "^5.5.3",
-    "vite": "^4.5.3",
-    "vite-plugin-nodecg": "^2.0.1"
+    "vite": "^4.5.3"
   },
   "pnpm": {
     "overrides": {
