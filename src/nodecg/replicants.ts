@@ -1,5 +1,7 @@
+import { Sample } from "./generated";
+
 type ReplicantMap = {
-  test: { id: string };
+  sample: Sample;
 };
 
 export { ReplicantMap };
