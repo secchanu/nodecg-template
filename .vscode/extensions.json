@@ -1,8 +1,7 @@
 {
-  "recommendations": [
-    "esbenp.prettier-vscode",
-    "dbaeumer.vscode-eslint",
-    "streetsidesoftware.code-spell-checker",
-    "Gruntfuggly.todo-tree"
-  ]
+	"recommendations": [
+		"biomejs.biome",
+		"streetsidesoftware.code-spell-checker",
+		"Gruntfuggly.todo-tree"
+	]
 }
