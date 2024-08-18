@@ -1,19 +1,18 @@
-/* eslint-disable no-restricted-syntax */
-import fs from "fs/promises";
-import path from "path";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 import { globSync } from "glob";
 import {
-	rollup,
-	watch as rollupWatch,
-	type RollupOptions,
 	type InputOptions,
 	type OutputOptions,
+	type RollupOptions,
 	type RollupWatchOptions,
-	type RollupWatcherEvent,
 	type RollupWatcher,
+	type RollupWatcherEvent,
+	rollup,
+	watch as rollupWatch,
 } from "rollup";
-import { ResolvedConfig, Manifest, Plugin } from "vite";
+import type { Manifest, Plugin, ResolvedConfig } from "vite";
 
 const setupExtensionBuild = async (options: RollupOptions) => {
 	const inputOptions: InputOptions = {
@@ -109,16 +108,16 @@ export default async ({
 			fs.readFile(
 				path.join(
 					config.root,
-					typeof template === "string" ? template : template.graphics
+					typeof template === "string" ? template : template.graphics,
 				),
-				"utf-8"
+				"utf-8",
 			),
 			fs.readFile(
 				path.join(
 					config.root,
-					typeof template === "string" ? template : template.dashboard
+					typeof template === "string" ? template : template.dashboard,
 				),
-				"utf-8"
+				"utf-8",
 			),
 		]);
 
@@ -139,15 +138,15 @@ export default async ({
 				? (JSON.parse(
 						await fs.readFile(
 							path.join(config.build.outDir, "manifest.json"),
-							"utf-8"
-						)
+							"utf-8",
+						),
 					) as Manifest)
 				: undefined;
 
 		const generateHtml = async (
 			input: string,
 			templateHtml: string,
-			outputDir: string
+			outputDir: string,
 		) => {
 			const head: string[] = [];
 
@@ -156,7 +155,7 @@ export default async ({
 					<script type="module">
 						import RefreshRuntime from '${new URL(
 							path.join(config.base, "@react-refresh"),
-							origin
+							origin,
 						)}'
 						RefreshRuntime.injectIntoGlobalHook(window)
 						window.$RefreshReg$ = () => {}
@@ -167,14 +166,14 @@ export default async ({
 				head.push(
 					`<script type="module" src="${new URL(
 						path.join(config.base, "@vite/client"),
-						origin
-					)}"></script>`
+						origin,
+					)}"></script>`,
 				);
 				head.push(
 					`<script type="module" src="${new URL(
 						path.join(config.base, input),
-						origin
-					)}"></script>`
+						origin,
+					)}"></script>`,
 				);
 			}
 
@@ -186,7 +185,7 @@ export default async ({
 					for (const imp of entryChunk.imports) {
 						for (const css of manifest?.[imp]?.css ?? []) {
 							head.push(
-								`<link rel="stylesheet" href="${path.join(config.base, css)}">`
+								`<link rel="stylesheet" href="${path.join(config.base, css)}">`,
 							);
 						}
 					}
@@ -195,7 +194,7 @@ export default async ({
 				if (entryChunk?.css) {
 					for (const css of entryChunk.css) {
 						head.push(
-							`<link rel="stylesheet" href="${path.join(config.base, css)}">`
+							`<link rel="stylesheet" href="${path.join(config.base, css)}">`,
 						);
 					}
 				}
@@ -204,8 +203,8 @@ export default async ({
 					head.push(
 						`<script type="module" src="${path.join(
 							config.base,
-							entryChunk.file
-						)}"></script>`
+							entryChunk.file,
+						)}"></script>`,
 					);
 				}
 			}
@@ -219,10 +218,10 @@ export default async ({
 
 		await Promise.all([
 			...graphicsInputs.map((input) =>
-				generateHtml(input, graphicsTemplateHtml, graphicsOutdir)
+				generateHtml(input, graphicsTemplateHtml, graphicsOutdir),
 			),
 			...dashboardInputs.map((input) =>
-				generateHtml(input, dashboardTemplateHtml, dashboardOutdir)
+				generateHtml(input, dashboardTemplateHtml, dashboardOutdir),
 			),
 		]);
 	};

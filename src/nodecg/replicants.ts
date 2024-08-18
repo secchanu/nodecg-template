@@ -1,7 +1,7 @@
-import { Sample } from "./generated";
+import type { Sample } from "./generated";
 
 type ReplicantMap = {
-  sample: Sample;
+	sample: Sample;
 };
 
-export { ReplicantMap };
+export type { ReplicantMap };

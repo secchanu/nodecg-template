@@ -1,14 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema",
+	"$schema": "http://json-schema.org/draft-04/schema",
 
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "str": {
-      "type": "string"
-    },
-    "num": {
-      "type": "number"
-    }
-  }
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"str": {
+			"type": "string"
+		},
+		"num": {
+			"type": "number"
+		}
+	}
 }

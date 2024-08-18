@@ -3,7 +3,6 @@ import rollupExternals from "rollup-plugin-node-externals";
 import { defineConfig } from "vite";
 
 import packageJson from "./package.json";
-// eslint-disable-next-line import/extensions, import/no-unresolved
 import nodecg from "./vite-plugin-nodecg.mjs";
 
 export default defineConfig({

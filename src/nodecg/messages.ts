@@ -1,3 +1,3 @@
-type MessageMap = {};
+// type MessageMap = {};
 
-export { MessageMap };
+// export type { MessageMap };
